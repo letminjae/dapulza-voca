@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom'
-
-interface Word {
-  text: string
-  meaning: string
-}
+import useApis from './hooks/useApis';
+import { Word } from './types';
 
 function WordView(word: Word) {
   return (
@@ -26,11 +23,7 @@ function WordList() {
   // warning!
   // 만약 어떠한 이유로 작동이 되지 않는다면, 그 문제를 우회해서
   // 전체 기능이 동작하도록 코드를 구현.
-  const wordlist: Word[] = [
-    { text: 'apple', meaning: 'n. 사과' },
-    { text: 'brick', meaning: 'n. 벽돌' },
-    { text: 'leap', meaning: 'v. 뛰다, 급증하다' }
-  ]
+  const wordlist = useApis();
 
   return (
     <section>
